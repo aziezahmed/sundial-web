@@ -53,6 +53,34 @@ defineProps<{ times: Times }>()
         <td>Nadir</td>
         <td>{{ times.nadir }}</td>
       </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr v-if="times.moonRise">
+        <td>Moon Rise</td>
+        <td>{{ times.moonRise }}</td>
+      </tr>
+      <tr v-if="times.moonSet">
+        <td>Moon Set</td>
+        <td> {{ times.moonSet }}</td>
+      </tr>
+      <tr>
+        <td>Moon Phase</td>
+        <td> {{ times.moonPhase?.toFixed(2) }}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td> {{ new Intl.DateTimeFormat('en', {day: 'numeric', month: 'long',year : 'numeric'}).format(Date.now()) }}</td>
+      </tr>
+      <tr>
+        <td>Hijri Date</td>
+        <td> {{ new Intl.DateTimeFormat('ar-TN-u-ca-islamic', {day: 'numeric', month: 'long'}).format(Date.now()) }}</td>
+      </tr>
     </tbody>
   </table>
 </template>

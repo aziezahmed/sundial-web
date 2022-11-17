@@ -9,4 +9,7 @@ export interface Times {
   nauticalDusk?: string;
   astrologicalDusk?: string;
   nadir?: string;
+  moonSet?: string;
+  moonRise?: string;
+  moonPhase?: number;
 }

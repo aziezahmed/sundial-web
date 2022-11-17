@@ -26,8 +26,11 @@ export default defineComponent({
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const times = SunCalc.getTimes(new Date(), position.coords.latitude, position.coords.longitude);
+        const moonTimes = SunCalc.getMoonTimes(new Date(), position.coords.latitude, position.coords.longitude);
+        const moonIllumination = SunCalc.getMoonIllumination(new Date());
+
         console.info(position);
-        this.times = {
+        const data:any = {
           astronomicalDawn: DateTime.fromJSDate(get(times, 'astronomicalDawn')).toLocaleString(DateTime.TIME_24_SIMPLE),
           nauticalDawn: DateTime.fromJSDate(times.nauticalDawn).toLocaleString(DateTime.TIME_24_SIMPLE),
           civilDawn: DateTime.fromJSDate(get(times, 'civilDawn')).toLocaleString(DateTime.TIME_24_SIMPLE),
@@ -39,6 +42,16 @@ export default defineComponent({
           astrologicalDusk: DateTime.fromJSDate(get(times, 'astrologicalDusk')).toLocaleString(DateTime.TIME_24_SIMPLE),
           nadir: DateTime.fromJSDate(times.nadir).toLocaleString(DateTime.TIME_24_SIMPLE),
         };
+
+        if(moonTimes.set) {
+          data['moonSet'] = DateTime.fromJSDate(moonTimes.set).toLocaleString(DateTime.TIME_24_SIMPLE);
+        }
+        if(moonTimes.rise) {
+          data['moonRise'] = DateTime.fromJSDate(moonTimes.rise).toLocaleString(DateTime.TIME_24_SIMPLE);
+        }
+        data['moonPhase'] = moonIllumination.phase;
+
+        this.times = data;
       });
     }
 
