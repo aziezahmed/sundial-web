@@ -57,6 +57,18 @@ defineProps<{ times: Times }>()
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
+      <tr>
+        <td>Fajr (15&#176;)</td>
+        <td> {{ times.fifteenDawn }}</td>
+      </tr>
+      <tr>
+        <td>Isha (15&#176;)</td>
+        <td> {{ times.fifteenDusk }}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
       <tr v-if="times.moonRise">
         <td>Moon Rise</td>
         <td>{{ times.moonRise }}</td>
