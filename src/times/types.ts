@@ -12,4 +12,6 @@ export interface Times {
   moonSet?: string;
   moonRise?: string;
   moonPhase?: number;
+  fifteenDawn?: string;
+  fifteenDusk?: string;
 }
