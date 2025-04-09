@@ -14,15 +14,15 @@ defineProps<{ times: Times }>()
     </thead>
     <tbody>
       <tr>
-        <td>Astronomical Dawn</td>
+        <td>Astronomical Dawn (18&#176;)</td>
         <td>{{ times.astronomicalDawn }}</td>
       </tr>
       <tr>
-        <td>Nautical Dawn</td>
+        <td>Nautical Dawn (12&#176;)</td>
         <td> {{ times.nauticalDawn }}</td>
       </tr>
       <tr>
-        <td>Civil Dawn</td>
+        <td>Civil Dawn (6&#176;)</td>
         <td> {{ times.civilDawn }}</td>
       </tr>
       <tr>
@@ -38,15 +38,15 @@ defineProps<{ times: Times }>()
         <td>{{ times.sunset }}</td>
       </tr>
       <tr>
-        <td>Civil Dusk</td>
+        <td>Civil Dusk (6&#176;)</td>
         <td>{{ times.civilDusk }}</td>
       </tr>
       <tr>
-        <td>Nautical Dusk</td>
+        <td>Nautical Dusk (12&#176;)</td>
         <td>{{ times.nauticalDusk }}</td>
       </tr>
       <tr>
-        <td>Astrological Dusk</td>
+        <td>Astrological Dusk (18&#176;)</td>
         <td>{{ times.astrologicalDusk }}</td>
       </tr>
       <tr>
@@ -64,6 +64,14 @@ defineProps<{ times: Times }>()
       <tr>
         <td>Isha (15&#176;)</td>
         <td> {{ times.fifteenDusk }}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Last Third Begins</td>
+        <td> {{ times.lastThird }}</td>
       </tr>
       <tr>
         <td>&nbsp;</td>

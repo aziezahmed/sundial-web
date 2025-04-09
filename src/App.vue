@@ -46,6 +46,29 @@ export default defineComponent({
           nadir: DateTime.fromJSDate(times.nadir).toLocaleString(DateTime.TIME_24_SIMPLE),
         };
 
+
+
+    // Get the time in milliseconds
+    const time1 = times.sunset.getTime();
+    const date2 = get(times, 'fifteenDawn');
+    date2.setDate(date2.getDate() + 1);
+
+    const time2 = date2.getTime();
+
+    // Calculate the difference in milliseconds
+    const difference = time2 - time1;
+
+    // Calculate two-thirds of the difference
+    const twoThirdsDifference = (2 / 3) * difference;
+
+    // Calculate the time that is two-thirds between the two dates
+    const twoThirdsTime = new Date(time1 + twoThirdsDifference);
+
+    console.log(twoThirdsTime); // Output the result
+
+        data['lastThird'] = DateTime.fromJSDate(twoThirdsTime).toLocaleString(DateTime.TIME_24_SIMPLE);
+        
+
         if(moonTimes.set) {
           data['moonSet'] = DateTime.fromJSDate(moonTimes.set).toLocaleString(DateTime.TIME_24_SIMPLE);
         }
